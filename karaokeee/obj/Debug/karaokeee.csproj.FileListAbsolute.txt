@@ -1,0 +1,14 @@
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\bin\Debug\karaokeee.exe.config
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\bin\Debug\karaokeee.exe
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\bin\Debug\karaokeee.pdb
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee.csprojResolveAssemblyReference.cache
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\MainWindow.g.cs
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\App.g.cs
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee_MarkupCompile.cache
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee_MarkupCompile.lref
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\MainWindow.baml
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee.g.resources
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee.Properties.Resources.resources
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee.csproj.GenerateResource.Cache
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee.exe
+c:\users\anshed\documents\visual studio 2015\Projects\karaokeee\karaokeee\obj\Debug\karaokeee.pdb

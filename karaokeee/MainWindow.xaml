@@ -1,0 +1,18 @@
+﻿<Window x:Class="karaokeee.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:karaokeee"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="402" Width="684"
+        WindowStyle="None" ResizeMode="NoResize"  
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="#000099" Margin="-101,-68,-47,-33">
+        <Button x:Name="buttonQuit" Content="QUIT" HorizontalAlignment="Center" Margin="0,0,-300,100" VerticalAlignment="Bottom" Width="140" Height="45" Click="buttonQuit_Click"/>
+        <Button x:Name="buttonPlay" Content="PLAY" HorizontalAlignment="Center" Margin="0,0,300,100" VerticalAlignment="Bottom" Width="140" Height="45" Click="buttonPlay_Click" RenderTransformOrigin="0.5,3.333"/>
+        <Label x:Name="lineActual" Content="" HorizontalAlignment="Left" FontFamily="Calibri" Margin="165,154,0,0" VerticalAlignment="Top" Foreground="White"  FontSize="20" />
+        <Label x:Name="lineNext" Content="" HorizontalAlignment="Left" FontFamily="Calibri" Margin="165,270,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" />
+
+    </Grid>
+</Window>
