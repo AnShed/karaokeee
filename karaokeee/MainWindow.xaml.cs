@@ -1,41 +1,21 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace karaokeee
 {
     public partial class MainWindow : Window
     {
-        /*Lyrics pickedSong;
-        SoundPlayer songPlayer;
-        Thread soundThread;*/
-
         KaraokePlayer karaoke;
-
-        int currentTime, nextVersicleTime, actualVersicleTime;
-        int currentVersicle;
-        bool isIntro;
         TimeSpan ts;
-
         DispatcherTimer dt = new DispatcherTimer();
         Stopwatch sw = new Stopwatch();
 
+        int currentTime;
+        int currentVersicle;
+        bool isIntro;
+                
         public MainWindow()
         {
             InitializeComponent();
@@ -60,51 +40,59 @@ namespace karaokeee
 
         private void buttonPlay_Click(object sender, RoutedEventArgs e)
         {
-            karaoke = new KaraokePlayer("Sounds\\wilczazamiec.wav","Lyrics\\wilczazamiec.txt");
-            //initializeSongLyrics("Lyrics\\wilczazamiec.txt");
-            currentVersicle = 0;
-            actualVersicleTime = karaoke.getLyrics().getLine(currentVersicle).getTime();
-            nextVersicleTime = karaoke.getLyrics().getLine(currentVersicle + 1).getTime();
-            lineNext.Content = karaoke.getLyrics().getVersicle(currentVersicle);
-            isIntro = true;
+            if (sw.IsRunning)
+            {
+                sw.Stop();
+                dt.Stop();
+            }
+            playKaraoke();            
+        }
+        
+        private void playKaraoke()
+        {
+            karaoke = new KaraokePlayer("Sounds\\wilczazamiec.wav", "Lyrics\\wilczazamiec.txt");
+
+            initialValues();
+
             karaoke.playSong();
-            //initializeSound("Sounds\\wilczazamiec.wav");
-            //soundThread = new Thread(playSong);            
-            //soundThread.Start();
             sw.Start();
             dt.Start();
         }
 
-        /*private void initializeSongLyrics(string path)
+        private void initialValues()
         {
-            pickedSong = new Lyrics(path);
+            currentVersicle = 0;
+            lineNext.Content = karaoke.getSingleLine(currentVersicle);
+            isIntro = true;
         }
-
-        private void initializeSound(string path)
-        {
-            songPlayer = new SoundPlayer(path);
-            songPlayer.Load();
-        }
-
-        private void playSong()
-        {            
-            songPlayer.Play();            
-        }*/
 
         private void runLyrics()
         {            
-            if (currentTime >= actualVersicleTime && currentTime < nextVersicleTime)
+            if (currentTime >= karaoke.getLinesTime(currentVersicle) && currentTime < karaoke.getLinesTime(currentVersicle + 1))
             {
-                lineActual.Content = karaoke.getLyrics().getVersicle(currentVersicle);
-                lineNext.Content = karaoke.getLyrics().getVersicle(currentVersicle + 1);
+                lineActual.Content = karaoke.getSingleLine(currentVersicle);
+                if (currentVersicle < karaoke.getLinesAmount())
+                {
+                    lineNext.Content = karaoke.getSingleLine(currentVersicle + 1);
+                }
+                else
+                {
+                    lineNext.Content = "";
+                }
+
                 isIntro = false;
             }
             else if(!isIntro)
             {
-                currentVersicle++;
-                actualVersicleTime = karaoke.getLyrics().getLine(currentVersicle).getTime();
-                nextVersicleTime = karaoke.getLyrics().getLine(currentVersicle + 1).getTime();
+                if (currentVersicle < karaoke.getLinesAmount())
+                {
+                    currentVersicle++;
+                }
+
             }
+
         }
+
     }
+
 }

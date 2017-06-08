@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Media;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace karaokeee
@@ -49,6 +44,21 @@ namespace karaokeee
         public Lyrics getLyrics()
         {
             return pickedSong;
+        }
+
+        public string getSingleLine(int index)
+        {
+            return pickedSong.getVersicle(index);
+        }
+
+        public int getLinesTime(int index)
+        {
+            return pickedSong.getVersicleTime(index);
+        }
+
+        public int getLinesAmount()
+        {
+            return pickedSong.getLinesAmount();
         }
 
     }

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows;
-using System.Reflection;
 
 namespace karaokeee
 {
@@ -20,19 +16,7 @@ namespace karaokeee
             lineNum = 0;
             prepareLyrics(path);
         }
-
-        private void addLine(int time, string line)
-        {
-            try
-            {
-                lyrics[lineNum] = new Line(time, line);
-            }
-            catch (InvalidOperationException)
-            {
-                MessageBox.Show("Wrong execution time or string is null", "Inputing lyrics Error");
-            }
-        }
-
+                
         private void prepareLyrics(string path)
         {
             int tempTime;
@@ -82,6 +66,11 @@ namespace karaokeee
         public string getVersicle(int lineNumber)
         {
             return lyrics[lineNumber].getText();
+        }
+
+        public int getVersicleTime(int lineNumber)
+        {
+            return lyrics[lineNumber].getTime();
         }
     }
 }
