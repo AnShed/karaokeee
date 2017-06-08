@@ -46,8 +46,16 @@ namespace karaokeee
                 {
                     tempTime = Int32.Parse(tempLine);
                     tempLine = file.ReadLine();
-                    lyrics.Add(new Line(tempTime, insertProperChars(tempLine)));
+                    lyrics.Add(new Line(tempTime, tempLine));
                     lineNum++;
+                }
+                catch(InvalidOperationException)
+                {
+                    MessageBox.Show("Time cannot be less then 0 and string can't be empty.", "Inputing lyrics Error");
+                }
+                catch(FileNotFoundException)
+                {
+                    MessageBox.Show("Lyrics file not found.", "Inputing lyrics Error");
                 }
                 catch (ArgumentNullException)
                 {
@@ -56,26 +64,11 @@ namespace karaokeee
                 catch (FormatException)
                 {
                     MessageBox.Show("Line time is not in the correct format.", "Inputing lyrics Error");
-                }               
+                }             
             }
             file.Close();
         }
-        
-        private string insertProperChars(string given)
-        {
-            given = given.Replace('1', 'ą');
-            given = given.Replace('2', 'ć');
-            given = given.Replace('3', 'ę');
-            given = given.Replace('4', 'ł');
-            given = given.Replace('5', 'ń');
-            given = given.Replace('6', 'ó');
-            given = given.Replace('7', 'ś');
-            given = given.Replace('8', 'ź');
-            given = given.Replace('9', 'ż');
-
-            return given;
-        }
-
+             
         public int getLinesAmount()
         {
             return lineNum;
@@ -84,6 +77,11 @@ namespace karaokeee
         public Line getLine(int lineNumber)
         {
             return lyrics[lineNumber];
+        }
+
+        public string getVersicle(int lineNumber)
+        {
+            return lyrics[lineNumber].getText();
         }
     }
 }
