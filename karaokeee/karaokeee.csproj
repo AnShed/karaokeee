@@ -67,6 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Audio\CompareAudioFiles.cs" />
+    <Compile Include="Audio\SampleAggregator.cs" />
     <Compile Include="Audio\SaveAudio.cs" />
     <Compile Include="KaraokePlayer.cs" />
     <Compile Include="Line.cs" />
