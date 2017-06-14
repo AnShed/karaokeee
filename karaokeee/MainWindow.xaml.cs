@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Threading;
+using karaokeee.Audio;
+using NAudio.Wave;
 
 namespace karaokeee
 {
     public partial class MainWindow : Window
     {
+        private SaveAudio _saveAudio;
         KaraokePlayer karaoke;
         TimeSpan ts;
         DispatcherTimer dt = new DispatcherTimer();
@@ -21,6 +25,8 @@ namespace karaokeee
             InitializeComponent();
             dt.Tick += new EventHandler(dt_Tick);
             dt.Interval = new TimeSpan(0, 0, 0, 0);
+
+           
         }
 
         private void dt_Tick(object sender, EventArgs e)
@@ -38,6 +44,15 @@ namespace karaokeee
             this.Close();
         }
 
+        private void buttonResult_Click(object sender, RoutedEventArgs e)
+        {
+           var compare = new CompareAudioFiles("Test0001.wav", @"Sounds\wilczazamiec.wav");
+
+            var result = compare.RunCompare(); 
+       
+            MessageBox.Show("Wynik: " + result.ToString(CultureInfo.InvariantCulture) + "%");
+        }
+
         private void buttonPlay_Click(object sender, RoutedEventArgs e)
         {
             if (sw.IsRunning)
@@ -45,7 +60,10 @@ namespace karaokeee
                 sw.Stop();
                 dt.Stop();
             }
-            playKaraoke();            
+            playKaraoke();
+
+            _saveAudio = new SaveAudio();
+            _saveAudio.Save();
         }
         
         private void playKaraoke()

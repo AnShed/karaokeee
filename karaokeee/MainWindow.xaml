@@ -9,10 +9,11 @@
         WindowStyle="None" ResizeMode="NoResize"  
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Background="#000099" Margin="-101,-68,-47,-33">
-        <Button x:Name="buttonQuit" Content="QUIT" HorizontalAlignment="Center" Margin="0,0,-300,100" VerticalAlignment="Bottom" Width="140" Height="45" Click="buttonQuit_Click"/>
+        <Button x:Name="buttonQuit" Content="QUIT" HorizontalAlignment="Center" Margin="614,0,78,100" VerticalAlignment="Bottom" Width="140" Height="45" Click="buttonQuit_Click"/>
         <Button x:Name="buttonPlay" Content="PLAY" HorizontalAlignment="Center" Margin="0,0,300,100" VerticalAlignment="Bottom" Width="140" Height="45" Click="buttonPlay_Click" RenderTransformOrigin="0.5,3.333"/>
         <Label x:Name="lineActual" Content="" HorizontalAlignment="Center" FontFamily="Calibri" Margin="380,175,412,0" VerticalAlignment="Top" Foreground="White"  FontSize="20" />
         <Label x:Name="lineNext" Content="" HorizontalAlignment="Center" FontFamily="Calibri" Margin="375,275,406,0" VerticalAlignment="Top" Foreground="#3333AA" FontSize="20" />
+        <Button x:Name="buttonResult" Content="Button" HorizontalAlignment="Left" Margin="396,358,0,0" VerticalAlignment="Top" Width="146" Height="45" Click="buttonResult_Click"/>
 
     </Grid>
 </Window>
